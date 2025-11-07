@@ -10,16 +10,21 @@ import SwiftUI
 struct CountryRow: View {
     var countryModel: CountryModel?
     var isDetailsView: Bool
-    
-//    print("isDetailsView: \(isDetailsView)")
+
+    //    print("isDetailsView: \(isDetailsView)")
 
     var body: some View {
-        
+
         HStack {
             VStack {
                 // country name
-                Text(countryModel?.name ?? "Not Found").font(.title).foregroundStyle(Color.blue)
-//                    .frame(alignment: isDetailsView ? .leading : .leading)
+                Text(countryModel?.name ?? "Not Found").foregroundStyle(
+                    Color.blue
+                ).font(.title)
+                .frame(
+                        maxWidth: .infinity,
+                        alignment: isDetailsView ? .center : .leading
+                    ).padding()
 
                 // country capital
                 HStack {
@@ -59,5 +64,5 @@ struct CountryRow: View {
 }
 
 #Preview {
-    CountryRow(isDetailsView: false)
+    CountryRow(isDetailsView: true)
 }
