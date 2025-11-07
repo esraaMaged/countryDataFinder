@@ -11,6 +11,7 @@ import Foundation
 class CountryViewModel: ObservableObject {
     @Published var country: CountryModel?
     @Published var errorMessage: String?
+    @Published var isLoading: Bool?
     @Published var countries = [
         CountryModel(
             name: "Egypt",
@@ -21,11 +22,13 @@ class CountryViewModel: ObservableObject {
             independent: true
         )
     ]
-    
+
     let MaxNumberOfCountriesAllowed = 5
 
     func fetchCountry(by name: String) {
-        // Construct the API URL for the given country name
+        self.isLoading = true
+
+        // Call API URL for the given country name
         guard
             let url = URL(
                 string:
@@ -38,6 +41,9 @@ class CountryViewModel: ObservableObject {
 
         // Make the network request
         URLSession.shared.dataTask(with: url) { data, response, error in
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
             if let error = error {
                 DispatchQueue.main.async {
                     self.errorMessage = "Error: \(error.localizedDescription)"
@@ -89,5 +95,6 @@ class CountryViewModel: ObservableObject {
         } else {
             self.errorMessage = "Country already added"
         }
+        self.country = nil
     }
 }

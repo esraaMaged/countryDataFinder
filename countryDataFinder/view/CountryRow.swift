@@ -15,16 +15,24 @@ struct CountryRow: View {
 
     var body: some View {
 
-        HStack {
+        ZStack {
+            //background
+            if isDetailsView {
+                Image("MapBackground")
+                    .resizable()
+                    .scaledToFill()  // fills the whole screen
+                    .ignoresSafeArea()
+            }
             VStack {
+
                 // country name
                 Text(countryModel?.name ?? "Not Found").foregroundStyle(
-                    Color.blue
+                    Color.brown
                 ).font(.title)
-                .frame(
+                    .frame(
                         maxWidth: .infinity,
                         alignment: isDetailsView ? .center : .leading
-                    ).padding()
+                    ).padding(.horizontal)
 
                 // country capital
                 HStack {
@@ -56,10 +64,9 @@ struct CountryRow: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-            }.frame(maxWidth: .infinity)
+            }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .background(isDetailsView ? Color.white.opacity(0.8) : .clear)
         }
-        // arrow icon
-        //        Button() {}
     }
 }
 
