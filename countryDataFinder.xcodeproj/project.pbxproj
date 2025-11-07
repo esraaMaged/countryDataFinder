@@ -29,9 +29,34 @@
 		1AE9F19C2EBE0F02006E1657 /* countryDataFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = countryDataFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1AE9F1BA2EBE20AD006E1657 /* Exceptions for "countryDataFinder" folder in "countryDataFinderTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				model/CountryModel.swift,
+				model/CountryViewModel.swift,
+				view/CountryRow.swift,
+			);
+			target = 1AE9F1912EBE0F02006E1657 /* countryDataFinderTests */;
+		};
+		1AE9F1BB2EBE20AD006E1657 /* Exceptions for "countryDataFinder" folder in "countryDataFinderUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				model/CountryModel.swift,
+				model/CountryViewModel.swift,
+				view/CountryRow.swift,
+			);
+			target = 1AE9F19B2EBE0F02006E1657 /* countryDataFinderUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1AE9F1872EBE0EFE006E1657 /* countryDataFinder */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1AE9F1BA2EBE20AD006E1657 /* Exceptions for "countryDataFinder" folder in "countryDataFinderTests" target */,
+				1AE9F1BB2EBE20AD006E1657 /* Exceptions for "countryDataFinder" folder in "countryDataFinderUITests" target */,
+			);
 			path = countryDataFinder;
 			sourceTree = "<group>";
 		};
@@ -75,10 +100,10 @@
 		1AE9F17C2EBE0EFE006E1657 = {
 			isa = PBXGroup;
 			children = (
-				1AE9F1872EBE0EFE006E1657 /* countryDataFinder */,
 				1AE9F1952EBE0F02006E1657 /* countryDataFinderTests */,
 				1AE9F19F2EBE0F02006E1657 /* countryDataFinderUITests */,
 				1AE9F1862EBE0EFE006E1657 /* Products */,
+				1AE9F1872EBE0EFE006E1657 /* countryDataFinder */,
 			);
 			sourceTree = "<group>";
 		};
