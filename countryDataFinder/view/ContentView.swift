@@ -26,7 +26,7 @@ struct ContentView: View {
     func fetchAPI() {
         viewModel.fetchCountry(by: countryName) { country in
             searchedCountry = country
-//            print("searchedCountry", searchedCountry)
+            //            print("searchedCountry", searchedCountry)
         }
     }
 
@@ -51,6 +51,7 @@ struct ContentView: View {
             // MARK:  - search view
             HStack {
                 TextField("Search by country name", text: $countryName)
+                    .accessibilityIdentifier("countrySearchField")
                     .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .onChange(of: countryName) { newValue in
